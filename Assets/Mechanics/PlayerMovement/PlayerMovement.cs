@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerMovement : MonoBehaviour, IControllable
+public class PlayerMovement : MonoBehaviour, IControllable, IPlayerController
 {
     #region Variables
 
@@ -23,7 +23,9 @@ public class PlayerMovement : MonoBehaviour, IControllable
     private bool _canMove = true;
 
     private Animator _animator;
-    
+
+    public event Action<Item> itemCollected;
+
 
     #endregion
 
@@ -36,11 +38,6 @@ public class PlayerMovement : MonoBehaviour, IControllable
     public float Gravity => _playerConfig.gravity;
 
     #endregion
-
-    private void Awake()
-    {
-        Init();
-    }
 
     private void OnEnable()
     {
@@ -94,7 +91,7 @@ public class PlayerMovement : MonoBehaviour, IControllable
         var relativeRotation = (transform.position + relativeDirection) - transform.position;
         _rotation = Quaternion.LookRotation(relativeRotation, Vector3.up);
 
-        _characterController.Move(relativeDirection * MovementSpeed * Time.deltaTime);
+        _characterController.Move(relativeDirection * MovementSpeed * Time.fixedDeltaTime);
         
     }
 
@@ -147,5 +144,14 @@ public class PlayerMovement : MonoBehaviour, IControllable
     private void AttackEnd()
     {
         _canMove = true;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Item")) 
+        {
+            Destroy(collision.gameObject);
+            itemCollected?.Invoke(collision.gameObject.GetComponent<ItemComponent>().Item);
+        }
     }
 }

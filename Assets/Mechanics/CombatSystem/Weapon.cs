@@ -1,17 +1,17 @@
 using System;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviour, IDamageable
 {
-    public event Action<GameObject> EnemyAttacked;
 
+    public event Action<GameObject> EnemyDamaged;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
         {
             Debug.Log("Attack");
-            EnemyAttacked?.Invoke(other.gameObject);
+            EnemyDamaged?.Invoke(other.gameObject);
         }
     }
 }
