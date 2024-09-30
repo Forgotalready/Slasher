@@ -8,14 +8,14 @@ public class EnemyModel : MonoBehaviour
   [SerializeField] private int _maxHealthPoint;
   [SerializeField] private int _damage;
   [SerializeField] private float _cdTime;
-   private float cd;
-
+  private float cd;
   private int _healthPoint;
 
   public void Init()
   {
     _healthPoint = _maxHealthPoint;
      cd = 0f;
+     GetComponent<ItemDrop>().Init();
   }
 
   public void GetDamage(int damage)

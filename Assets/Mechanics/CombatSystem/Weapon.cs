@@ -10,7 +10,6 @@ public class Weapon : MonoBehaviour, IDamageable
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Attack");
             EnemyDamaged?.Invoke(other.gameObject);
         }
     }

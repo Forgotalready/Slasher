@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5975701473834565076}
   - component: {fileID: 6766842160991899553}
   - component: {fileID: 7239829974698953478}
+  - component: {fileID: -7621122743982402033}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Enemy
@@ -157,3 +158,17 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-7621122743982402033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494205756691560463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a8ac2615a17cd44bbee902b3398057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dropableObjects:
+  - {fileID: 5864426047516359538, guid: c7f03b7b382ed014daffc262d8249bde, type: 3}

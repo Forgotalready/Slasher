@@ -9,6 +9,11 @@ public class PlayerModel : MonoBehaviour
   private IDamageable _damageableItem;
 
   public event Action PlayerDeath;
+  
+  public int Health 
+    {
+        get => _currentHealth;
+    }  
 
   public void Init(IPlayerStat playerStat, IDamageable damageableItem)
   {

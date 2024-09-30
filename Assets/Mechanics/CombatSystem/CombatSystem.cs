@@ -32,10 +32,6 @@ public class CombatSystem : MonoBehaviour
     public Action AttackEnd;
     #endregion
 
-    private void Awake()
-    {
-        Init();
-    }
 
     public void Init()
     {

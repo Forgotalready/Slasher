@@ -146,12 +146,17 @@ public class PlayerMovement : MonoBehaviour, IControllable, IPlayerController
         _canMove = true;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEn(Collision collision)
     {
-        if (collision.collider.CompareTag("Item")) 
+
+    }
+
+    private void OnTriggerEnter(Collider collider) 
+    {
+        if (collider.CompareTag("Item"))
         {
-            Destroy(collision.gameObject);
-            itemCollected?.Invoke(collision.gameObject.GetComponent<ItemComponent>().Item);
+            Destroy(collider.gameObject);
+            itemCollected?.Invoke(collider.gameObject.GetComponent<ItemComponent>().Item);
         }
     }
 }

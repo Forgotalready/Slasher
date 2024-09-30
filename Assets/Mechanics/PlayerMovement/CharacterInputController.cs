@@ -6,10 +6,6 @@ public class CharacterInputController : MonoBehaviour
     private IControllable _controllable;
     public GameInput GameInput {  get; private set; }
 
-    private void Awake()
-    {
-        Init();
-    }
 
     private void Update()
     {

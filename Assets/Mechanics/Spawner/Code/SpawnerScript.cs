@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SpawnerScript : MonoBehaviour
 {
-  public List<GameObject> _enemys = new();
+  private List<GameObject> _enemys = new();
   [SerializeField] private GameObject _enemyTemplate;
   [SerializeField] private int _maxSpawnedMobs;
   [SerializeField] private float _cdTime;

@@ -22,7 +22,6 @@ public class EnemyObjectPool : MonoBehaviour, IObjectPool
             _inUse.Add(created);
             
             created.transform.position = position;
-            created.GetComponent<EnemyModel>().Init();
             created.SetActive(true);
         }
 
